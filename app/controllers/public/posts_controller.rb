@@ -1,0 +1,56 @@
+class Public::PostsController < ApplicationController
+  before_action :authenticate_end_user!
+  before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
+
+  def show
+    @post = post.find(params[:id])
+    @post_comment = postComment.new
+  end
+
+  def index
+    @posts = post.all
+    @post = post.new
+  end
+
+  def create
+    @post = post.new(post_params)
+    @post.end_user_id = current_end_user.id
+    if @post.save
+      redirect_to post_path(@post), notice: "You have created post successfully."
+    else
+      @posts = post.all
+      render 'index'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: "You have updated post successfully."
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
+  def ensure_correct_end_user
+    @post = post.find(params[:id])
+    unless @post.end_user == current_end_user
+      redirect_to posts_path
+    end
+  end
+end
+
+

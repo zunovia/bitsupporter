@@ -62,4 +62,9 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'refile', require: 'refile/rails', github: 'refile/refile'
+gem 'kaminari', '~> 1.2.1'
+gem 'jquery-rails'
+gem 'rails-i18n'
+gem 'enum_help'
+
 

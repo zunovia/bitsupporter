@@ -1,0 +1,64 @@
+<section class="inner">
+  <h2 class="section-ttl">新規会員登録</h2>
+
+   <%= form_with model: @end_user, url: registration_path(resource_name), local: true do |f| %>
+    <%= render 'layouts/error_messages', resource: @end_user %>
+    <table class="end_user_info end_user_form">
+      <thead>
+        <th></th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>名前 or ハンドルネーム</td>
+          <td><%= f.label :name, "", class: "name" %> <%= f.text_field :name, autofocus: true, :placeholder =>"田中一郎" %></td>
+        </tr>
+        <tr>
+          <td>社会に伝えたい事</td>
+          <td><%= f.label :express, "", class: "express" %> <%= f.text_field :express, :placeholder =>"なかなか伝わらない事を言葉にしてみます。" %></td>
+        </tr>
+        <tr>
+          <td>障害名　(当事者以外なら家族、支援者など)</td>
+          <td><%= f.label :disorder, "" %> <%= f.text_field :disorder, :placeholder =>"うつ病" %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.label :email, "" %></td>
+          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :age, "年代" %></td>
+          <td colspan="2"><%= f.text_field :age, :placeholder =>"３０代", class: "age" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :sex, "性別" %></td>
+          <td colspan="2"><%= f.text_field :sex, class: "sex" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :prefecture, "お住まいの都道府県" %></td>
+          <td colspan="2"><%= f.text_field :prefecture, :placeholder =>"茨木" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+          <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+          <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :want, "社会に望むもの" %></td>
+          <td colspan="2"><%= f.text_field :want, :placeholder =>"医療機関と福祉機関、市役所の福祉課など、縦割りではなく、すべてが１つの窓口に集約している福祉医療体制があると嬉しい。", class: "jpostal_code" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+
+  <h2 class="section-ttl">既に登録済みの方</h2>
+  <p><%= link_to "こちら", new_end_user_session_path, class: "underline" %>からログインしてください。</p>
+</section>
