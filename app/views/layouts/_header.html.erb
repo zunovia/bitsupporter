@@ -9,17 +9,17 @@
         <ul class="navbar-nav ml-auto">
         <% if end_user_signed_in? %>
           <li>
-            <%= link_to mypage_path(current_end_user),class: 'nav-link text-light' do %>
+            <%= link_to user_page_path(current_end_user),class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
           </li>
           <li>
-            <%=  link_to end_users_path,class: 'nav-link text-light' do %>
+            <%=  link_to index_path,class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i> Users
             <% end %>
           </li>
           <li>
-            <%=  link_to public_posts_path ,class: 'nav-link text-light' do %>
+            <%=  link_to posts_path ,class: 'nav-link text-light' do %>
               <i class="fas fa-book-open"></i> Posts
             <% end %>
           </li>
@@ -30,7 +30,7 @@
           </li>
         <% else %>
           <li>
-            <%= link_to mypage_path,class: 'nav-link text-light' do %>
+            <%= link_to root_path,class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
           </li>

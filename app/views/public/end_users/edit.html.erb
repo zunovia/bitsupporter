@@ -1,0 +1,47 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>end_user info</h2><br>
+
+    <%= form_with model:@end_user, url:'/end_users', local:true do |f| %>
+      <%= render 'layouts/errors', obj: @end_user %>
+      <div class="form-group">
+        <%= f.label :名前、ハンドルネーム%>
+        <%= f.text_field :name, class: "form-control name" %>
+      </div>
+     <div class="form-group">
+        <%= f.label :画像 %>
+        <%= f.file_field :profile_image, class: "form-control-file end_user_image", accept: 'image/*' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :社会に伝えたい事 %>
+        <%= f.text_area :express, class: "form-control express" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :障害名（当事者以外なら家族、支援者と記入） %>
+        <%= f.text_area :disorder, class: "form-control disorder" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :年代（２０代なら２０と記入） %>
+        <%= f.text_area :age, class: "form-control age" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :性別（男、女と記入） %>
+        <%= f.text_area :sex, class: "form-control sex" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :お住まいの都道府県（茨木県から茨木と記入） %>
+        <%= f.text_area :prefecture, class: "form-control prefecture" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :社会に望むもの %>
+        <%= f.text_area :want, class: "form-control want" %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

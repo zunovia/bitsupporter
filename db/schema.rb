@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_092750) do
+ActiveRecord::Schema.define(version: 2022_09_12_100021) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2022_09_10_092750) do
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "end_user_id"
+    t.integer "post_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -85,16 +87,24 @@ ActiveRecord::Schema.define(version: 2022_09_10_092750) do
   create_table "post_comments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment", limit: 500
+    t.integer "end_user_id"
+    t.integer "post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title", limit: 50, default: "", null: false
+    t.text "body", limit: 500, default: "", null: false
+    t.integer "end_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "follower_id"
+    t.integer "followed_id"
   end
 
   create_table "searches", force: :cascade do |t|

@@ -1,0 +1,41 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'public/end_users/info', end_user: @end_user %>
+      <h2 class="mt-3">New Post</h2>
+      <%= render 'public/posts/form', post: Post.new %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+  		<h2>Post detail</h2>
+  		<table class='table'>
+  		  <tr>
+          <td><%= link_to user_page_path(@post.end_user.id) do %>
+            <%= image_tag @post.end_user.get_profile_image(100,100) %><br>
+            <%= @post.end_user.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @post.title, @post %></td>
+          <td><%= @post.body %></td>
+          <td class=<%= "favorite-" + @post.id.to_s %> >
+            <%= render "public/favorites/btn", post: @post %>
+          </td>
+          <td class="post-comments-counter">
+            <%= render "public/post_comments/counter", post: @post %>
+          </td>
+          <% if @post.end_user == current_end_user %>
+            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
+            <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %></td>
+          <% end %>
+        </tr>
+      </table>
+
+      <div class="post-comments-index">
+        <%= render "public/post_comments/index", post: @post %>
+      </div>
+
+      <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <table class='table'>
-  <tr><%= image_tag end_user.get_profile_image, size:'100x100' %></tr>
+  <tr><%= image_tag end_user.get_profile_image(100,100) %></tr>
   <tr>
 	  <th>name</th>
 	  <th><%= end_user.name %></th>
@@ -14,19 +14,19 @@
   </tr>
   <tr>
     <th>follows</th>
-    <th><%= link_to end_user.followings.count, end_user_followings_path(end_user) %></th>
+    <th><%= link_to end_user.followings.count, followings_path(end_user) %></th>
   </tr>
   <tr>
     <th>followers</th>
-    <th><%= link_to end_user.followers.count, end_user_followers_path(end_user) %></th>
+    <th><%= link_to end_user.followers.count, followers_path(end_user) %></th>
   </tr>
 </table>
 
 <div class='row'>
   <% if current_end_user != end_user %>
-    <td><%= render "relationships/btn", end_user: end_user %></td>
+    <td><%= render "public/relationships/btn", end_user: end_user %></td>
   <% else %>
-    <%= link_to edit_end_user_path(end_user), class: "btn btn-outline-secondary btn-block edit_end_user_#{end_user.id}" do %>
+    <%= link_to edit_information_path(end_user), class: "btn btn-outline-secondary btn-block edit_information_#{end_user.id}" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% end %>
