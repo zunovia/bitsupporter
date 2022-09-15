@@ -8,8 +8,12 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body style="background-color:deepskyblue;">
-    <%= render 'layouts/header' %>
+    <body style="background-color:deepskyblue;">
+    <% if request.fullpath.include? "admin"  %>
+      <%= render 'layouts/admin_header' %>
+        <% else%>
+          <%= render 'layouts/header' %>
+        <% end %>
       <main>
         <p id="notice"><%= notice %></p>
         <div class="d-flex justify-content-center mb-2">

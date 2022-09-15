@@ -1,31 +1,26 @@
 class Admin::EndUsersController < ApplicationController
-before_action :authenticate_end_user!
- before_action :ensure_correct_end_user, only: [:update,:edit,:destroy]
+before_action :authenticate_admin!
+ before_action :ensure_correct_admin, only: [:update,:edit,:destroy]
 
 
   def new
-   @post = post.new
+   @post = Post.new
   end
 
   def show
     @end_user = end_user.find(params[:id])
     @posts = @end_user.posts
-    @post = post.new
+    @post = Post.new
   end
 
   def index
-    @end_end_users = end_user.all
-    @post = post.new
+    @end_users = EndUser.all
+    @post = Post.new
     @end_user = current_end_user
   end
 
   def edit
-    @end_user = end_user.find(params[:id])
-    if @end_user == current_end_user
-      render :edit
-    else
-      redirect_to end_user_path(current_end_user)
-    end
+
   end
 
   def update
@@ -46,9 +41,9 @@ before_action :authenticate_end_user!
   end
 
   def ensure_correct_end_user
-    @end_user = end_user.find(params[:id])
-    unless @end_user == current_end_user
-      redirect_to end_user_path(current_end_user)
+    @admin = admin.find(params[:id])
+    unless @admin == current_admin
+      redirect_to admin_end_users_path(current_admin)
     end
   end
 
