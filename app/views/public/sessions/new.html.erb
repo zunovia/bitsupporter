@@ -2,7 +2,8 @@
 <section class="inner">
 <h2 class="section-ttl">Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: end_user_session_path(resource_name)) do |f| %>
+<%#= form_for(resource, as: resource_name, url: end_user_session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: end_user_session_path()) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -3,10 +3,10 @@ class Public::EndUsersController < ApplicationController
   before_action :ensure_correct_end_user, only: [:update,:edit,:destroy]
   before_action :ensure_guest_end_user, only: [:edit]
 
-  def new
-   @post = Post.new
-   @end_user = EndUser.new
-  end
+  #def new
+   #@post = Post.new
+   #@end_user = EndUser.new
+  #end
 
 
   def show
@@ -19,6 +19,7 @@ class Public::EndUsersController < ApplicationController
     @end_users = EndUser.all
     @post = Post.new
     @end_user = current_end_user
+
   end
 
   def edit
@@ -33,7 +34,7 @@ class Public::EndUsersController < ApplicationController
   def update
        @end_user = EndUser.find(params[:id])
     if @end_user.save(end_user_params)
-      redirect_to update_information_path(@end_user), notice: "You have updated end_user successfully."
+      redirect_to update_information_path(), notice: "You have updated end_user successfully."
     else
       render "edit"
     end
