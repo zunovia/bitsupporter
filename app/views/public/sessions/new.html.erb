@@ -1,17 +1,19 @@
-<h2>Log in</h2>
+<div class="d-flex justify-content-center mb-4">
+<section class="inner">
+<h2 class="section-ttl">Log in</h2>
 
-<%= form_with model: @end_user, url: end_user_session_path(resource_name), local: true do |f| %>
+<%= form_for(resource, as: resource_name, url: end_user_session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field  :name, autofocus: true, class: "name"%>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "password" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
+  <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
@@ -19,8 +21,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in"  ,class: 'btn btn-sm btn-primary' %>
+    <%= f.submit "Log in" %>
   </div>
 <% end %>
 
 <%= render "public/shared/links" %>
+</section>
+</div>

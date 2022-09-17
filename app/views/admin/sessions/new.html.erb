@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<div class="d-flex justify-content-center mb-4">
+<section class="inner">
+<h2 class="section-ttl">管理者 Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +26,5 @@
 <% end %>
 
 <%= render "admin/shared/links" %>
+</section>
+</div>

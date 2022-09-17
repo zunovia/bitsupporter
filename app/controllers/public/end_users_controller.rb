@@ -1,7 +1,13 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
-  before_action :ensure_correct_end_user, only: [:edit, :update,:destroy]
+  before_action :ensure_correct_end_user, only: [:update,:edit,:destroy]
   before_action :ensure_guest_end_user, only: [:edit]
+
+  def new
+   @post = Post.new
+   @end_user = EndUser.new
+  end
+
 
   def show
     @end_user = EndUser.find(params[:id])

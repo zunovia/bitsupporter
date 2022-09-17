@@ -8,7 +8,7 @@ before_action :authenticate_admin!
   end
 
   def show
-    @end_user = end_user.find(params[:id])
+    @end_user = EndUser.find(params[:id])
     @posts = @end_user.posts
     @post = Post.new
   end

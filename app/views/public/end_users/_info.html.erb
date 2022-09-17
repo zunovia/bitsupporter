@@ -25,9 +25,9 @@
 <div class='row'>
   <% if current_end_user != end_user %>
     <td><%= render "public/relationships/btn", end_user: end_user %></td>
-  <% else %>
-    <%= link_to edit_information_path(end_user), class: "btn btn-outline-secondary btn-block edit_information_#{end_user.id}" do %>
-      <i class="fas fa-user-cog"></i>
+  <% elsif end_user.name!= "guestuser" %>
+    <%= link_to '', edit_information_path(end_user), class: "btn btn-outline-secondary btn-block edit_information_#{end_user.id}" do %>
+      <i class="fas fa-tools"></i>
     <% end %>
   <% end %>
 </div>

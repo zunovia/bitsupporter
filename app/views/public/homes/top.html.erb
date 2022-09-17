@@ -1,25 +1,26 @@
 <div class="container">
-    <div class="row row-cols-auto2-justify-content-center">
+  <div class="row row-cols-auto2-justify-content-center">
       <div class="col">
-      <h1>welcome to <i class="fas fa-american-sign-language-interpreting"></i><br>
-      <strong>Bit Supporters</strong>  !!</h1>
-      <p>In  <i class="fas fa-american-sign-language-interpreting"></i><br>
-      <strong>Bit Supporter</strong>, </p><br>
-      <p>you can share and exchange  your opinions , impressions , and emotions</p>
-      <p> about various disorders and their cases!</p>
+      <h1>
+      <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+        <lord-icon src="https://cdn.lordicon.com/kjkiqtxg.json" trigger="hover"
+          colors="outline:#121331,primary:#646e78,secondary:#4bb3fd,tertiary:#ebe6ef"
+            style="width:150px;height:150px"></lord-icon>
+            <br>
+            <strong>Bit Supporter</strong></h1>
+            <br>
 				<p>
 				ようこそBit Supporter へ!<br>
 				このサイトは、障害名をオープンにし,<br>
-				社会環境へ希望する事業を言葉で発信するサイトになります。<br>
-				会員でない方も内容は閲覧できますが、<br>
-				発信するには会員登録が必要になります。
+				社会環境へ希望する事を言葉で発信するサイトです。<br>
+				会員でない方も内容は閲覧できますが、発信するには会員登録が必要になります。<br>
 				</p>
 				</div>
 				<div class="btn-wrapper col-5 mx-auto">
         <div class="row">
           <div class="col">
               <br><br><br><br><br><br>
-               <div><%= link_to 'ゲストログイン（閲覧用）',end_users_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" %></div><br>
+               <div><%= link_to 'ゲストログイン（閲覧用）', end_users_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" , method: :post %></div><br>
 
                <div><%= link_to 'Log in',end_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %></div><br>
 
