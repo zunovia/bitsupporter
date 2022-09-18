@@ -24,6 +24,9 @@ class EndUser < ApplicationRecord
   validates :express, length: { maximum: 200 }
 
 
+  scope :only_active, -> { where(is_active: true) }
+
+
   def follow(end_user)
     relationships.create(followed_id: end_user.id)
   end

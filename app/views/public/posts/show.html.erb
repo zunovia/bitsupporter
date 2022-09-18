@@ -1,13 +1,13 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2>User info</h2>
+      <h2>会員情報</h2>
       <%= render 'public/end_users/info', end_user: @post.end_user %>
-      <h2 class="mt-3">New post</h2>
+      <h2 class="mt-3">新規投稿</h2>
       <%= render 'public/posts/form', post: Post.new %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2>Post detail</h2>
+      <h2>会員投稿詳細</h2>
         <table class='table'>
         <tr>
           <td><%= link_to(@post.end_user) do %>

@@ -1,23 +1,23 @@
 <table class='table'>
   <tr><%= image_tag end_user.get_profile_image(100,100) %></tr>
   <tr>
-	  <th>name</th>
+	  <th>名前</th>
 	  <th><%= end_user.name %></th>
   </tr>
   <tr>
-	  <th>disorder</th>
+	  <th>障害名</th>
 	  <th><%= end_user.disorder %></th>
   </tr>
   <tr>
-	  <th>introduction</th>
+	  <th>伝えたい事</th>
 	  <th><%= end_user.express %></th>
   </tr>
   <tr>
-    <th>follows</th>
+    <th>フォロー</th>
     <th><%= link_to end_user.followings.count, end_user_followings_path(end_user) %></th>
   </tr>
   <tr>
-    <th>followers</th>
+    <th>フォロワー</th>
     <th><%= link_to end_user.followers.count, end_user_followers_path(end_user) %></th>
   </tr>
 </table>
@@ -26,7 +26,7 @@
   <% if current_end_user != end_user %>
     <td><%= render "public/relationships/btn", end_user: end_user %></td>
   <% elsif end_user.name!= "guestuser" %>
-    <%= link_to edit_information_path(end_user), class: "btn btn-outline-secondary btn-block edit_information_#{end_user.id}" do %>
+    <%= link_to edit_end_user_path(end_user), class: "btn btn-outline-secondary btn-block edit_end_user_registration_#{end_user.id}" do %>
       <i class="fas fa-tools"></i>
     <% end %>
   <% end %>

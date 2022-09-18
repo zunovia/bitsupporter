@@ -1,6 +1,6 @@
 class Public::EndUsersController < ApplicationController
-  before_action :authenticate_end_user!
-  before_action :ensure_correct_end_user, only: [:update,:edit,:destroy]
+  before_action :authenticate_end_user!, except: [:top, :about]
+  before_action :ensure_correct_end_user, only: [:update,:edit, :destroy]
   before_action :ensure_guest_end_user, only: [:edit]
 
   #def new
@@ -33,12 +33,29 @@ class Public::EndUsersController < ApplicationController
 
   def update
        @end_user = EndUser.find(params[:id])
-    if @end_user.save(end_user_params)
-      redirect_to update_information_path(), notice: "You have updated end_user successfully."
+       @end_user.update(end_user_params)
+    if @end_user.save
+      redirect_to end_user_path(@end_user.id), notice: "会員情報を更新しました。"
     else
-      render "edit"
+       render :edit
     end
   end
+
+  def unsubscribe
+    @end_user = current_end_user
+  end
+
+  def withdraw
+    @end_user = current_end_user
+    @end_user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました。"
+    redirect_to root_path
+  end
+
+
+
+
 
   private
 
@@ -47,7 +64,7 @@ class Public::EndUsersController < ApplicationController
   end
 
   def ensure_correct_end_user
-    @end_user = EndUser.find(params[:id])
+    @end_user = current_end_user
     unless @end_user == current_end_user
       redirect_to end_user_path(current_end_user)
     end
@@ -56,7 +73,7 @@ class Public::EndUsersController < ApplicationController
   def ensure_guest_end_user
     @end_user = EndUser.find(params[:id])
     if @end_user.name == "guestuser"
-      redirect_to end_user_path(current_end_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to end_users_path() , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 
