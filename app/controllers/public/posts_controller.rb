@@ -12,6 +12,7 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @end_user = current_end_user
   end
 
   def create

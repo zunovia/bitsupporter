@@ -13,14 +13,17 @@
 				ようこそBit Supporter へ!<br>
 				このサイトは、障害名をオープンにし,<br>
 				社会環境へ希望する事を言葉で発信するサイトです。<br>
-				会員でない方も内容は閲覧できますが、発信するには会員登録が必要になります。<br>
+				会員でない方も内容は閲覧できますが、発信するには会員登録が必要になります。<br><br>
+
+				ページ右上にある「ゲストユーザーログイン」ボタンよりサイトをご覧頂けます。<br>
+				会員登録後に、投稿やコメント機能をお使いになれます。<br>
 				</p>
 				</div>
 				<div class="btn-wrapper col-5 mx-auto">
         <div class="row">
           <div class="col">
               <br><br><br><br><br><br>
-               <div><%= link_to 'ゲストログイン（閲覧用）', end_users_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" , method: :post %></div><br>
+               <div><%= link_to 'ゲストログイン（閲覧用）', guests_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3 sign_in" , method: :post %></div><br>
 
                <div><%= link_to 'Log in',end_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %></div><br>
 
