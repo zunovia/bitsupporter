@@ -8,6 +8,7 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     @posts = @end_user.posts
     @post = Post.new
+    @guestusername = current_end_user.name
   end
 
   def index
@@ -41,10 +42,9 @@ class Public::EndUsersController < ApplicationController
   end
 
   def withdraw
-    @end_user = current_end_user
-    @end_user.update(is_deleted: true)
+    @end_user.update(is_active: false)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました。"
+    flash[:notice] = "退会処理を実行しました。"
     redirect_to root_path
   end
 

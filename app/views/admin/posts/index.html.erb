@@ -1,5 +1,5 @@
 <table class='table table-hover table-inverse'>
-  <h2>投稿一覧</h2> <h5>全投稿数：<%= @posts.count %>　投稿</h5>
+  <h2>　　投稿一覧</h2> <h5>　　全投稿数：<%= @posts.count %>　投稿</h5>
   <thead>
     <tr>
       <th></th>
@@ -21,7 +21,7 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.favorites.count %></td>
-        <td><%= link_to '削除', post_path(post.id), method: :delete, class: "post_#{post.id}" %></td>
+        <td><%= link_to '削除', posts_path(post.id), method: :delete, class: "post_#{post.id}" %></td>
     <% end %>
   </tbody>
 </table>

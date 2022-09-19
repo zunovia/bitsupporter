@@ -1,5 +1,5 @@
 class Admin::EndUsersController < ApplicationController
-before_action :authenticate_admin!
+ before_action :authenticate_admin!
  before_action :ensure_correct_admin, only: [:update,:edit,:destroy]
 
 
@@ -34,13 +34,21 @@ before_action :authenticate_admin!
    end
   end
 
+  def destroy
+    @end_user = EndUser.find(params[:id])
+    @end_user.destroy
+    redirect_to admin_end_users_path
+  end
+
+
+
   private
 
   def end_user_params
     params.require(:end_user).permit(:name, :introduction, :profile_image)
   end
 
-  def ensure_correct_end_user
+  def ensure_correct_admin
     @admin = admin.find(params[:id])
     unless @admin == current_admin
       redirect_to admin_end_users_path(current_admin)

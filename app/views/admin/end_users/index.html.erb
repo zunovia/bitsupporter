@@ -1,5 +1,5 @@
 <table class='table table-hover table-inverse'>
-<h2>利用者一覧</h2> <h5>アクティブユーザー数：　<%= @end_users.count %>　人</h5>
+<h2>　　利用者一覧</h2> <h5>　　アクティブユーザー数：　<%= @end_users.count %>　人</h5>
   <thead>
     <tr>
       <th>画像</th>
@@ -41,7 +41,7 @@
 						<span class="text-invalid">退会済み</span>
 					<% end %>
         </td>
-        <td><%= link_to '削除', end_user_registration_path(end_user.id), method: :delete, class: "end_user_#{end_user.id}" %></td>
+        <td><%= link_to '削除', withdraw_end_user_path,  class: "end_user_#{end_user.id}" %></td>
       </tr>
     <% end %>
   </tbody>

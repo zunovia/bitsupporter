@@ -27,7 +27,7 @@
           <% end %>
         </tr>
       </table>
-
+      <h5>▼　コメント　-------------------------------------　</h5>
       <div class="post-comments-index"><%= render "public/post_comments/index", post: @post %></div>
       <% if current_end_user.name != "guestuser" %>
       <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
