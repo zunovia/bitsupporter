@@ -27,7 +27,7 @@ class Admin::EndUsersController < ApplicationController
     @end_user = end_user.find(params[:id])
     @end_user.update(end_user_params)
    if @end_user.save
-      flash[:notice]='You have updated end_user successfully.'
+      flash[:notice]='　　You have updated end_user successfully.'
       redirect_to end_user_path(@end_user.id)
    else
       render :edit

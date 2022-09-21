@@ -9,7 +9,7 @@ class Public::GuestsController < ApplicationController
       end_user.disorder = "guestuser"
     end
     sign_in end_user
-    redirect_to end_user_path(current_end_user), notice: 'ゲストユーザーでログインしました。'
+    redirect_to end_user_path(current_end_user), notice: '　　ゲストユーザーでログインしました。'
   end
 
 
