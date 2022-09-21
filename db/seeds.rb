@@ -10,3 +10,8 @@ Admin.create!(
    email: 'kaneda1@eem.jp',
    password: 'kkkkkk'
 )
+
+Admin.create!(
+   email: 'kaneda@eem.jp1',
+   password: 'kkkkkk'
+)

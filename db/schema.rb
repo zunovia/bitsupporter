@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2022_09_15_042046) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title", limit: 50, default: "", null: false
-    t.text "body", limit: 500, default: "", null: false
+    t.text "body", limit: 500, null: false
     t.integer "end_user_id"
   end
 
