@@ -1,9 +1,15 @@
 <div class="d-flex justify-content-center mb-4">
+  <div class="row">
+    <div class="col">
 <% if @model == 'end_user' %>
-	<h3>会員検索結果 "<%= @content %>"</h3>
+	<h3>　会員検索結果 "<%= @content %>"</h3>
+	<br>
   <%= render 'public/end_users/index', end_users: @records %>
 <% elsif @model == 'post' %>
-	<h3>投稿検索結果 "<%= @content %>"</h3>
+	<h3>　投稿検索結果 "<%= @content %>"</h3>
+	<br>
   <%= render 'public/posts/index', posts: @records %>
 <% end %>
+</div>
+</div>
 </div>
