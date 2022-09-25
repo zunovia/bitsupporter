@@ -15,7 +15,18 @@
  */
 
 
-.table {
-overflow: auto;
+table.end_user_index_index {
+/*overflow: auto;*/
+thead {
+  display: block;
 }
+
+tbody {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /*height: 500px；*/
+}
+}
+
+
 
