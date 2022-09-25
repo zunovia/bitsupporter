@@ -3,13 +3,14 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-<style type="text/css">
-thead, tbody {
+
+thead {
   display: block;
 }
+
 tbody {
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 500px;
+  /*height: 500px；*/
 }
-</style>
+
