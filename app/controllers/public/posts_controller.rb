@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
     if @post.save
-      redirect_to post_path(@post), notice: "　　投稿完了しました。"
+      redirect_to post_path(@post), notice: "投稿完了しました。"
     else
       @posts = Post.all
       render 'index'
@@ -31,7 +31,7 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "　　編集完了しました。"
+      redirect_to post_path(@post), notice: "編集完了しました。"
     else
       render "edit"
     end

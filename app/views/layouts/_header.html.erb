@@ -7,6 +7,12 @@
         <span class="navbar-toggler-icon"></span>
         </button>
 
+        <% if end_user_signed_in? %>
+        <div class="d-flex justify-content-center mb-2">
+          <%= render 'public/searches/form' %>
+        </div>
+        <% end %>
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if end_user_signed_in? %>

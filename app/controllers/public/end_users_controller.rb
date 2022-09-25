@@ -31,7 +31,7 @@ class Public::EndUsersController < ApplicationController
        @end_user = EndUser.find(params[:id])
        @end_user.update(end_user_params)
     if @end_user.save
-      redirect_to end_user_path(@end_user.id), notice: "　　会員情報を更新しました。"
+      redirect_to end_user_path(@end_user.id), notice: "会員情報を更新しました。"
     else
        render :edit
     end
@@ -68,7 +68,7 @@ class Public::EndUsersController < ApplicationController
   def ensure_guest_end_user
     @end_user = EndUser.find(params[:id])
     if @end_user.name == "guestuser"
-      redirect_to end_users_path() , notice: '　　ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to end_users_path() , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 

@@ -80,6 +80,7 @@ group :development, :test do
 
   # ここに移動
   gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 
