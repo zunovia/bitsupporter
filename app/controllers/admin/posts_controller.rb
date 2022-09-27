@@ -4,15 +4,16 @@ class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @end_user = EndUser.find_by(params[post_id])
 
   end
 
   def index
     @posts = Post.all
-    #@end_user = EndUser.find_by(params[post_id])
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to admin_posts_path
   end

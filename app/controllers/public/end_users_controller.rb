@@ -48,6 +48,17 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path
   end
 
+  def create
+    @post = Post.new(post_params)
+    @post.end_user_id = current_end_user.id
+    if @post.save
+      redirect_to post_path(@post), notice: "投稿完了しました。"
+    else
+      @posts = Post.all
+      render 'index'
+    end
+  end
+
 
 
 

@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>会員情報</h2>
+      <%= render 'public/end_users/info', end_user: @post.end_user %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>会員投稿詳細</h2>
+        <table class='table'>
+        <tr>
+          <td><%= link_to(@post.end_user) do %>
+            <%= image_tag @post.end_user.get_profile_image(50,50) %><br>
+            <%= @post.end_user.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @post.title, @post %></td>
+          <td><%= @post.body %></td>
+          <td>コメント数: <%= @post.post_comments.count %></td>
+          <td id="favorite_buttons_<%= @post.id %>"><%= render "public/favorites/btn", post: @post %></td>
+            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
+            <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
+        </tr>
+      </table>
+      <h5>▼　コメント　-------------------------------------　</h5>
+      <div class="post-comments-index"><%= render "admin/post_comments/index", post: @post %></div>
+    </div>
+  </div>
+</div>

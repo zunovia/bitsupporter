@@ -23,7 +23,7 @@
   </tr>
 </table>
 
-<div class='row'>
+<div class='row_end_user_index'>
   <% if current_end_user != end_user %>
     <td><%= render "public/relationships/btn", end_user: end_user %></td>
   <% elsif end_user.name!= "guestuser" %>

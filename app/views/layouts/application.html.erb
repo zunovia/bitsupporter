@@ -12,11 +12,10 @@
     <% if request.fullpath.include? "admin"  %>
       <%= render 'layouts/admin_header' %>
         <% else%>
-          <%= render 'layouts/header' %>
+        <%= render 'layouts/header' %>
         <% end %>
       <main>
         <p id="notice">　　<%= notice %></p>
-
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>

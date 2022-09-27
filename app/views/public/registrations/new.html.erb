@@ -13,19 +13,19 @@
       <tbody>
         <tr>
           <td><%= f.label :name, "名前 or ハンドルネーム" %></td>
-          <td colspan="2"><%= f.text_field :name, autofocus: true, :placeholder =>"田中一郎" %></td>
+          <td colspan="2"><%= f.text_field :name, autofocus: true, :placeholder =>"必須" %></td>
         </tr>
         <tr>
           <td><%= f.label :express, "社会に伝えたい事" %></td>
-          <td colspan="2"><%= f.text_field :express, :placeholder =>"なかなか伝わらない事を言葉にしてみます。" %></td>
+          <td colspan="2"><%= f.text_field :express %></td>
         </tr>
         <tr>
           <td><%= f.label :disorder, "障害名　(当事者以外なら家族、支援者など)" %></td>
-          <td colspan="2"><%= f.text_field :disorder, :placeholder =>"うつ病" %></td>
+          <td colspan="2"><%= f.text_field :disorder, :placeholder =>"必須" %></td>
         </tr>
         <tr>
           <td><%= f.label :email, "メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+          <td colspan="2"><%= f.email_field :email, :placeholder =>"必須",autocomplete: "email" %></td>
         </tr>
         <tr>
           <td><%= f.label :age, "年代" %></td>
@@ -41,15 +41,15 @@
         </tr>
         <tr>
           <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-          <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+          <td colspan="2"><%= f.password_field :password, :placeholder =>"必須", autocomplete: "new-password" %></td>
         </tr>
         <tr>
           <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-          <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          <td colspan="2"><%= f.password_field :password_confirmation,  :placeholder =>"必須",autocomplete: "new-password" %></td>
         </tr>
         <tr>
           <td><%= f.label :want, "社会に望むもの" %></td>
-          <td colspan="2"><%= f.text_field :want, :placeholder =>"医療機関と福祉機関、市役所の福祉課など、縦割りではなく、すべてが１つの窓口に集約している福祉医療体制があると嬉しい。", class: "want" %></td>
+          <td colspan="2"><%= f.text_field :want, class: "want" %></td>
         </tr>
         <tr>
           <td></td>

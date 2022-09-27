@@ -1,6 +1,6 @@
 <table class='table table-hover table-inverse'>
 <h2>　　利用者一覧</h2> <h5>　　アクティブユーザー数：　<%= @end_users.count %>　人</h5>
-  <thead class="sticky-top">
+  <thead>
     <tr>
       <th>画像</th>
       <th>会員名</th>
@@ -16,6 +16,7 @@
       <th>フォロワー数</th>
       <th>投稿数</th>
       <th>退会可否</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
@@ -40,6 +41,7 @@
 						<span class="text-invalid">退会済み</span>
 					<% end %>
         </td>
+        <td><#%= link_to '削除', withdraw_end_user_path,  class: "end_user_#{end_user.id}" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -21,7 +21,7 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.favorites.count %></td>
-        <td><%= link_to '投稿削除', admin_post_path(post.id), method: :delete %></td>
+        <td><%= link_to '削除する', admin_posts_path(@post.id), method: :delete, class: "post_#{post.id}" %></td>
     <% end %>
   </tbody>
 </table>

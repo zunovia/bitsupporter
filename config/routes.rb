@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :posts, only: [:index, :show, :edit, :update, :destroy]
 
+    resources :post_comments, only: [:destroy]
 
      get '/search', to: 'searches#search'
 

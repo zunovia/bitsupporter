@@ -1,0 +1,36 @@
+
+  <sidebar class="sticky-top">
+    <!-- toggle section -->
+    <input type="checkbox" id="check" />
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <!-- sidebar section -->
+    <div class="sidebar">
+      <header><strong>投稿する</strong></header>
+        <% if end_user_signed_in? %>
+        <ul>
+          <li>
+            <%= form_with model:@post,local:true do |f| %>
+            <div class="form-group">
+            <%= f.label :タイトル %>
+            <%= f.text_field :title, class: 'form-control post_title' %>
+            </div>
+            <div class="form-group">
+            <%= f.label :投稿内容 %>
+            <%= f.text_area :body, class: 'form-control post_body' %>
+            </div>
+            <div class="form-group">
+            <%= f.submit class: 'btn btn-success' %>
+            </div>
+            <% end %>
+            <% end %>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-envelope"></i>　お問い合わせ</a>
+        </li>
+      </ul>
+    </div>
+    <section></section>
+  </sidebar>

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw_end_user'
 
   #post 'end_users/guest_sign_in', to: 'end_users/sessions#guest_sign_in'
-  post 'end_users/guest_sign_in'  => 'end_users/sessions#guest_sign_in'
+  #post 'end_users/guest_sign_in'  => 'end_users/sessions#guest_sign_in'
 
   resources :end_users, only: [:index, :show, :edit,:update, :destroy] do
   resource :relationships, only: [:create, :destroy]
@@ -50,7 +50,12 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#search'
 
+  post '/guests/guest_sign_in', to: 'guests#guest_sign_in'
+
 end
+
+
+
 end
 
 

@@ -40,6 +40,13 @@ class Admin::EndUsersController < ApplicationController
     redirect_to admin_end_users_path
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to admin_posts_path
+  end
+
+
 
 
   private
