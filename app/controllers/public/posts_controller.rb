@@ -17,6 +17,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.score = Language.get_data(post_params[:body])
     @post.end_user_id = current_end_user.id
     if @post.save
       redirect_to post_path(@post), notice: "投稿完了しました。"

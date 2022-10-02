@@ -19,6 +19,7 @@
           </td>
           <td><%= link_to @post.title, @post %></td>
           <td><%= @post.body %></td>
+          <td><p class="sentiment-score">投稿感情分析スコア[<%= @post.score %>]</p></td>
           <td>コメント数: <%= @post.post_comments.count %></td>
           <td id="favorite_buttons_<%= @post.id %>"><%= render "public/favorites/btn", post: @post %></td>
           <% if @post.end_user == current_end_user %>
