@@ -3,14 +3,12 @@ class Public::HomesController < ApplicationController
   before_action :ensure_guest_end_user, only: [:edit]
 
   def top
-
   end
-
-
 
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
+    @end_user = current_end_user
     if @post.save
       redirect_to post_path(@post), notice: "投稿完了しました。"
     else
