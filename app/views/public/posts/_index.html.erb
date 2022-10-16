@@ -15,7 +15,7 @@
           <%= image_tag post.end_user.get_profile_image(50,50) %>
           <% end %>
         </td>
-        <td><%= link_to post.title,post, class: "post_#{post.id}" %></td>
+        <td><%= link_to post.title, class: "post_#{post.id}" %></td>
         <td><%= post.body %></td>
         <td><p class="sentiment-score">スコア[<%= post.score %>]</p></td>
         <td class=<%= "favorite-" + post.id.to_s %> >
