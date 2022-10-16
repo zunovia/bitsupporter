@@ -4,7 +4,9 @@
       <h2>会員情報</h2>
       <%= render 'public/end_users/info', end_user: @post.end_user %>
       <% if @post.end_user == current_end_user %>
-
+      <h2 class="mt-3">新規投稿</h2>
+      <%= render 'public/posts/form', post: Post.new %>
+      <% end %>
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>会員投稿詳細</h2>

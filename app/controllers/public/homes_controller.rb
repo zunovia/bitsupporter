@@ -8,7 +8,7 @@ class Public::HomesController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
-    @end_user = current_end_user
+    @guestusername = current_end_user.name
     if @post.save
       redirect_to post_path(@post), notice: "投稿完了しました。"
     else

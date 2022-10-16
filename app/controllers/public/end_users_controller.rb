@@ -15,7 +15,7 @@ class Public::EndUsersController < ApplicationController
     @end_users = EndUser.all
     @post = Post.new
     @end_user = current_end_user
-
+    @guestusername = current_end_user.name
   end
 
   def edit
@@ -30,6 +30,7 @@ class Public::EndUsersController < ApplicationController
   def update
        @end_user = EndUser.find(params[:id])
        @end_user.update(end_user_params)
+       @guestusername = current_end_user.name
     if @end_user.save
       redirect_to end_user_path(@end_user.id), notice: "会員情報を更新しました。"
     else
@@ -51,6 +52,7 @@ class Public::EndUsersController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
+    @guestusername = current_end_user.name
     if @post.save
       redirect_to post_path(@post), notice: "投稿完了しました。"
     else

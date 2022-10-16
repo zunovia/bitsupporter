@@ -9,7 +9,7 @@
     <!-- sidebar section -->
     <div class="sidebar">
       <header><strong>投稿</strong></header>
-        <% if end_user_signed_in? %>
+        <% if end_user_signed_in? && @guestusername != "guestuser" %>
         <ul>
           <li>
             <%= form_with model:@post,local:true do |f| %>

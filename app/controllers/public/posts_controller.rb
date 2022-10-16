@@ -7,18 +7,21 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
     @posts = Post.all
     @end_user = EndUser.find(params[:id])
+    @guestusername = current_end_user.name
   end
 
   def index
     @posts = Post.all
     @post = Post.new
     @end_user = current_end_user
+    @guestusername = current_end_user.name
   end
 
   def create
     @post = Post.new(post_params)
     @post.score = Language.get_data(post_params[:body])
     @post.end_user_id = current_end_user.id
+    @guestusername = current_end_user.name
     if @post.save
       redirect_to post_path(@post), notice: "投稿完了しました。"
     else
