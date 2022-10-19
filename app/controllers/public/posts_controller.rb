@@ -7,12 +7,12 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
     @posts = Post.all
     @end_user = EndUser.find(params[:id])
-    @guestusername = current_end_user.name
+    #@guestusername = current_end_user.name
   end
 
   def index
     @posts = Post.all
-    @post = Post.new
+    @post = Post.new(post_params)
     @end_user = current_end_user
     @guestusername = current_end_user.name
   end
