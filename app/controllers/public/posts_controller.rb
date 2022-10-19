@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @post = Post.new(post_params)
+    @post = Post.new
     @end_user = current_end_user
     @guestusername = current_end_user.name
   end
