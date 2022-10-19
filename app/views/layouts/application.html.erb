@@ -13,7 +13,9 @@
       <%= render 'layouts/admin_header' %>
         <% else%>
         <%= render 'layouts/header' %>
-        <%= render 'layouts/sidebar' %>
+        <% if @is_post_show.blank? %>
+          <%= render 'layouts/sidebar' %>
+        <% end %>
         <% end %>
       <main>
         <p id="notice">　　<%= notice %></p>

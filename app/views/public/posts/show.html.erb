@@ -20,8 +20,8 @@
           <td>コメント数: <%= @post.post_comments.count %></td>
           <td id="favorite_buttons_<%= @post.id %>"><%= render "public/favorites/btn", post: @post %></td>
           <% if @post.end_user == current_end_user %>
-            <td><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
-            <td><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
+            <td><%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
+            <td><%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
           <% end %>
         </tr>
       </table>

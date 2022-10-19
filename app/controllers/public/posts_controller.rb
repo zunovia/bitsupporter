@@ -7,6 +7,7 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
     @posts = Post.all
     @end_user = EndUser.find(params[:id])
+    @is_post_show = true
     #@guestusername = current_end_user.name
   end
 

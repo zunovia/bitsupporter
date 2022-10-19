@@ -81,7 +81,6 @@ label #btn {
 
 label #cancel {
   z-index: 10;
-  /* left: 195px; 見やすいように最初はこれ*/
   left: -195px;
   top: 30px;
   font-size: 50px;
@@ -116,8 +115,111 @@ section {
 }
 
 
-//-----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+
+#check:checked ~ .sidebar {
+  left: 0;
+}
+
+#check:checked ~ label #btn {
+  left: 300px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+  left: 300px;
+}
+
+#check:checked ~ section {
+  margin-left: 300px;
+}
 
 
+.flex {
+  display: block;
+}
+
+header {
+  width: 50%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+body {
+  font-size: 10px;
+}
+
+footer {
+  display:flex;
+  width: 50%;
+  text-align: right;
+
+}
+
+
+
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+
+#check:checked ~ .sidebar {
+  top: 0;
+  left: 0;
+}
+
+#check:checked ~ label #btn {
+  left: 300px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+  left: 300px;
+}
+
+#check:checked ~ section {
+  margin-left: 300px;
+}
+
+
+
+.flex {
+  display: block;
+}
+
+
+header {
+  width: 50%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  position: center;
+}
+
+body {
+  font-size: 10px;
+}
+
+footer {
+  width: 50%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  position: right;
+
+}
+
+
+
+}
 
 
