@@ -33,12 +33,12 @@
             <td><%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
           <% end %>
           </tr>
-          <tr><td colspan="6"><%= @post.body %></td></tr>
+          <tr><td colspan="6">【投稿内容】　<%= @post.body %></td></tr>
           <% end %>
 
       </table>
       <h5>▼　コメント　-------------------------------------　</h5>
-      <div class="post-comments-index"><%= render "public/post_comments/index", post: @post %></div>
+      <div class="post-comments-index">　<%= render "public/post_comments/index", post: @post %></div>
       <% if current_end_user.name != "guestuser" %>
       <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
       <% end %>

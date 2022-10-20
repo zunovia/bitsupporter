@@ -3,7 +3,7 @@
     <tr>
       <th></th>
       <th>タイトル</th>
-      <th>AI感情分析（-1:悪い、1:良い）</th>
+      <th>AI感情分析<br>（-1:悪い、1:良い）</th>
       <th>わかる</th>
       <th>コメント</th>
     </tr>
@@ -22,7 +22,7 @@
         </td>
         <td><%= render "public/post_comments/counter", post: post %></td>
       </tr>
-      <tr><td colspan="4"><%= post.body %></td></tr>
+      <tr><td colspan="4">【投稿内容】　<%= post.body %></td></tr>
     <% end %>
   </tbody>
 </table>
