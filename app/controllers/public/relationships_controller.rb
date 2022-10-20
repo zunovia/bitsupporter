@@ -15,10 +15,12 @@ class Public::RelationshipsController < ApplicationController
   def followings
     @end_user = EndUser.find(params[:end_user_id])
     @end_users = @end_user.followings
+    @is_post_show = true
   end
 
   def followers
     @end_user = EndUser.find(params[:end_user_id])
     @end_users = @end_user.followers
+    @is_post_show = true
   end
 end
