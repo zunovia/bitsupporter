@@ -6,24 +6,36 @@
 
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2>会員投稿詳細</h2>
-        <table class='table'>
+    <h2>会員投稿詳細</h2>
+      <table class='table'>
+       <thead bgcolor="aqua">
         <tr>
-          <td><%= link_to(@post.end_user) do %>
+          <th></th>
+          <th>タイトル</th>
+          <th>AI（-1:悪い、1:良い）</th>
+          <th>コメント</th>
+          <th>わかる</th>
+          <th colspan="2"></th>
+        </tr>
+       </thead>
+      <tbody>
+        <tr>
+          <td  rowspan="4"><%= link_to(@post.end_user) do %>
             <%= image_tag @post.end_user.get_profile_image(50,50) %><br>
             <%= @post.end_user.name %>
-            <% end %>
           </td>
-          <td><%= link_to @post.title, @post %></td>
-          <td><%= @post.body %></td>
-          <td><p class="sentiment-score">投稿感情分析スコア[<%= @post.score %>]</p></td>
-          <td>コメント数: <%= @post.post_comments.count %></td>
-          <td id="favorite_buttons_<%= @post.id %>"><%= render "public/favorites/btn", post: @post %></td>
+            <td><%= link_to @post.title, @post %></td>
+            <td><p class="sentiment-score">AI感情分析スコア　[<%= @post.score %>]</p></td>
+            <td>コメント数: <%= @post.post_comments.count %></td>
+            <td id="favorite_buttons_<%= @post.id %>"><%= render "public/favorites/btn", post: @post %></td>
           <% if @post.end_user == current_end_user %>
             <td><%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
             <td><%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
           <% end %>
-        </tr>
+          </tr>
+          <tr><td colspan="6"><%= @post.body %></td></tr>
+          <% end %>
+
       </table>
       <h5>▼　コメント　-------------------------------------　</h5>
       <div class="post-comments-index"><%= render "public/post_comments/index", post: @post %></div>

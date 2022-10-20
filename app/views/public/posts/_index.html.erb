@@ -3,7 +3,7 @@
     <tr>
       <th></th>
       <th>タイトル</th>
-      <th>投稿感情分析（-1:悪い、1:良い）</th>
+      <th>AI感情分析（-1:悪い、1:良い）</th>
       <th>わかる</th>
       <th>コメント</th>
     </tr>
@@ -16,7 +16,7 @@
           <% end %>
         </td>
         <td><%= link_to post.title,post,class: "post_#{post.id}" %></td>
-        <td><p class="sentiment-score">スコア[<%= post.score %>]</p></td>
+        <td><p class="sentiment-score">スコア　[<%= post.score %>]</p></td>
         <td class=<%= "favorite-" + post.id.to_s %> >
             <%= render "public/favorites/btn", post: post %>
         </td>

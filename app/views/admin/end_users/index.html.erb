@@ -1,17 +1,15 @@
 <table class='table table-hover table-inverse'>
 <h2>　　利用者一覧</h2> <h5>　　アクティブユーザー数：　<%= @end_users.count %>　人</h5>
-  <thead class="sticky-top">
-    <tr>
+  <thead>
+    <tr class="sticky-top">
       <th>画像</th>
       <th>会員名</th>
-      <th>伝えたい事</th>
       <th>障害名</th>
       <th>メールアドレス</th>
       <th>年代</th>
       <th>性別</th>
       <th>都道府県</th>
       <th>パスワード</th>
-      <th>社会に希望する事</th>
       <th>フォロー数</th>
       <th>フォロワー数</th>
       <th>投稿数</th>
@@ -21,16 +19,15 @@
   <tbody>
     <% @end_users.each do |end_user| %>
       <tr>
-        <td><%= image_tag end_user.get_profile_image(50,50) %></td>
+        <td rowspan="3"><%= image_tag end_user.get_profile_image(50,50) %></td>
         <td><%= end_user.name %></td>
-        <td><%= end_user.express %></td>
         <td><%= end_user.disorder %></td>
         <td><%= end_user.email %></td>
         <td><%= end_user.age %></td>
         <td><%= end_user.sex %></td>
         <td><%= end_user.prefecture %></td>
         <td><%= end_user.password %></td>
-        <td><%= end_user.want %></td>
+        <td></td>
         <td><%= end_user.followings.count %></td>
         <td><%= end_user.followers.count %></td>
         <td><%= end_user.posts.count %></td>
@@ -40,6 +37,12 @@
 						<span class="text-invalid">退会済み</span>
 					<% end %>
         </td>
+      </tr>
+      <tr>
+        <td colspan="10">伝えたい事 : <%= end_user.express %></td>
+      </tr>
+      <tr>
+        <td colspan="10">社会に希望する事 : <%= end_user.want %></td>
       </tr>
     <% end %>
   </tbody>
